@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Text from URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="displayText">No text provided</h1>
+
+    <script>
+        // Function to get query parameter value by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the 'text' query parameter value
+        const text = getQueryParam('text');
+
+        // If 'text' parameter is provided, display it
+        if (text) {
+            document.getElementById('displayText').textContent = decodeURIComponent(text);
+        }
+    </script>
+</body>
+</html>
